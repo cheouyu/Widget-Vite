@@ -1,12 +1,71 @@
-# React + Vite
+網址：https://widget-vite-two.vercel.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Vite + React 项目
 
-Currently, two official plugins are available:
+## 组件使用说明
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Toast 通知组件
 
-## Expanding the ESLint configuration
+项目使用 `react-toastify` 来实现通知功能。
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. 在组件中引入：
+
+```jsx
+import { toast, ToastContainer } from "react-toastify";
+```
+
+2. 在组件中使用 ToastContainer：
+
+```jsx
+<ToastContainer
+  position="bottom-right"
+  autoClose={5000}
+  hideProgressBar={false}
+  newestOnTop={false}
+  closeOnClick={false}
+  rtl={false}
+  pauseOnFocusLoss
+  draggable
+  pauseOnHover
+  theme="dark"
+  style={{ zIndex: 9999999999 }}
+/>
+```
+
+3. 调用通知：
+
+```jsx
+toast("这是一条通知消息");
+```
+
+### MetaCRM Widget
+
+项目集成了 MetaCRM Widget 用于客户关系管理。
+
+1. Widget 已在 `index.html` 中自动加载和初始化
+2. 配置参数：
+
+   - apiKey: "*********"
+   - autoOpenNewNotification: true
+   - manualConnect: true
+   - MetaCRMWidgetExecutionEnvironment: "dev"
+
+## 开发环境设置
+
+1. 安装依赖：
+
+```bash
+npm install
+```
+
+2. 启动开发服务器：
+
+```bash
+npm run dev
+```
+
+3. 构建生产版本：
+
+```bash
+npm run build
+```
